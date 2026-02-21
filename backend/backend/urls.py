@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('web.urls')),
 ]
 
+
 # 仅限开发阶段使用。生产阶段需要在nginx里配置。
 if settings.DEBUG:
     urlpatterns += static(
