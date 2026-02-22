@@ -15,7 +15,7 @@ class UpdateProfileView(APIView):
             user = request.user
             user_profile = UserProfile.objects.get(user=user)
             username = request.data.get('username').strip()
-            profile = request.data.get('profile').strip()[:500]
+            profile = request.data.get('profile').strip()
             photo = request.FILES.get('photo', None)
 
             if not username:
@@ -48,5 +48,5 @@ class UpdateProfileView(APIView):
             })
         except:
             return Response({
-                'result': '系统异常，请稍后重试'
+                'result': '系统异常请稍后重试'
             })
