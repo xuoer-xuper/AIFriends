@@ -8,7 +8,7 @@ from web.models.user import UserProfile
 
 class CreateCharacterView(APIView):
     permission_classes = [IsAuthenticated]
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         try:
             user = request.user
             user_profile = UserProfile.objects.get(user=user)
@@ -40,9 +40,10 @@ class CreateCharacterView(APIView):
                 profile=profile,
                 photo=photo,
                 background_image=background_image,
+
             )
             return Response({
-                'result': 'success',
+                'result': 'success'
             })
         except:
             return Response({
