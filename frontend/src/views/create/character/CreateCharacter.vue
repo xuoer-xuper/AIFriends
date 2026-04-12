@@ -54,7 +54,6 @@ async function handleCreate() {
         errorMessage.value = data.result
       }
     } catch (err) {
-      console.log(err)
     }
   }
 }
@@ -71,6 +70,7 @@ async function handleCreate() {
         <BackgroundImage ref="background-image-ref" />
 
         <p v-if="errorMessage" class="text-sm text-red-500">{{ errorMessage }}</p>
+
         <div class="flex justify-center">
           <button @click="handleCreate" class="btn btn-neutral w-60 mt-2">创建</button>
         </div>
