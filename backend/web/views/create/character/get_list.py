@@ -14,7 +14,7 @@ class GetListCharacterView(APIView):
             user = User.objects.get(id=user_id)
             user_profile = UserProfile.objects.get(user=user)
             characters_raw = Character.objects.filter(
-                author=user_profile
+                author = user_profile
             ).order_by('-id')[items_count: items_count + 20]
             characters = []
             for character in characters_raw:
@@ -43,5 +43,5 @@ class GetListCharacterView(APIView):
             })
         except:
             return Response({
-                'result': '系统异常，请稍后重试'
+                'result':'系统异常，请稍后重试'
             })
