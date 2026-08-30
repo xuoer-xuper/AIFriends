@@ -91,7 +91,7 @@ onBeforeUnmount(() => {
       />
     </div>
     <div ref="sentinel-ref" class="h-2 mt-8"></div>
-    <div v-if="isLoading" class="text-gray-500 mt-4">加载中...</div>
+    <div v-if="isLoading" class="text-gray-500 mt-4">加载中……</div>
     <div v-else-if="!hasCharacters" class="text-gray-500 mt-4">没有更多角色了</div>
   </div>
 </template>
