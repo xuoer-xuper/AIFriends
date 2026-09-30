@@ -13,11 +13,11 @@ class GetOrCreateFriendView(APIView):
             character_id = request.data['character_id']
             user = request.user
             user_profile = UserProfile.objects.get(user=user)
-            friends = Friend.objects.filter(character_id=character_id, me=user_profile)
+            friends = Friend.objects.filter(character_id=character_id, me = user_profile)
             if friends.exists():
                 friend = friends.first()
             else:
-                friend = Friend.objects.create(character_id=character_id, me=user_profile)
+                friend = Friend.objects.create(character_id=character_id, me = user_profile)
             character = friend.character
             author = character.author
             return Response({
@@ -40,5 +40,5 @@ class GetOrCreateFriendView(APIView):
             })
         except:
             return Response({
-                'result': '系统异常，请稍后重试'
+                'result': '系统异常，请稍后再试'
             })
