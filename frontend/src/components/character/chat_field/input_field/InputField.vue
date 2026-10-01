@@ -1,5 +1,4 @@
 <script setup>
-
 import SendIcon from "@/components/character/icons/SendIcon.vue";
 import MicIcon from "@/components/character/icons/MicIcon.vue";
 </script>
