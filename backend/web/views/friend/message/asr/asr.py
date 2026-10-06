@@ -50,8 +50,8 @@ class ASRView(APIView):
             event = data['header']['event']
             if event == 'result-generated':
                 output = data['payload']['output']
-                if output.get('transcription', None) and output['transcription']['sentence_end']:
-                    text += output['transcription']['text']
+                if output.get('sentence', None) and output['sentence']['sentence_end']:
+                    text += output['sentence']['text']
             elif event in ['task-finished', 'task-failed']:
                 break
         return text
@@ -72,11 +72,10 @@ class ASRView(APIView):
                     "action": "run-task"
                 },
                 "payload": {
-                    "model": "gummy-realtime-v1",
+                    "model": "qwen-audio-3.0-asr-flash-streaming",
                     "parameters": {
                         "sample_rate": 16000,
                         "format": "pcm",
-                        "transcription_enabled": True,
                     },
                     "input": {},
                     "task": "asr",
